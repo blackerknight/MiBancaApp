@@ -57,7 +57,6 @@ dependencies {
     //firebase: Firestore
     implementation("com.google.firebase:firebase-firestore:26.0.0")
 
-
     // ViewModel y LiveData (Architecture Components)
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
@@ -65,6 +64,15 @@ dependencies {
     // Opcional: para observar desde fragments o activities de forma segura
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
 
+    // Navigation
+    implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
+    implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
+
+    // ViewPager2
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+
+    // RecyclerView
+    implementation("androidx.recyclerview:recyclerview:1.3.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

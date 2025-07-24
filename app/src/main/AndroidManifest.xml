@@ -23,6 +23,14 @@
             android:exported="false" />
 
         <activity
+            android:name=".dashboard.AddCardActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".dashboard.DashboardActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>

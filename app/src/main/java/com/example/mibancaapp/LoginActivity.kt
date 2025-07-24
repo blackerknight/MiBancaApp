@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.mibancaapp.dashboard.DashboardActivity
 import com.example.mibancaapp.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -74,7 +75,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToMain() {
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this, DashboardActivity::class.java))
         finish()
     }
 

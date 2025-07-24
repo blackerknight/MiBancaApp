@@ -4,81 +4,61 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
+
 class CardViewModel : ViewModel() {
     private val repository = CardRepository()
 
     private val _cards = MutableLiveData<List<Card>>()
     val cards: LiveData<List<Card>> = _cards
 
-    private val _loading = MutableLiveData<Boolean>()
-    val loading: LiveData<Boolean> = _loading
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
 
-    private val _error = MutableLiveData<String?>()
-    val error: LiveData<String?> = _error
+    private val _message = MutableLiveData<String>()
+    val message: LiveData<String> = _message
 
-    private val _operationResult = MutableLiveData<String?>()
-    val operationResult: LiveData<String?> = _operationResult
-
-    private fun loadCards() {
-        _loading.value = true
-        repository.getUserCards { cards, error ->
-            _loading.value = false
-            if (error != null) {
-                _error.value = error
-            } else {
-                _cards.value = cards
-                _error.value = null
-            }
+    fun loadCards() {
+        _isLoading.value = true
+        repository.getCards { cards ->
+            _isLoading.value = false
+            _cards.value = cards
         }
     }
 
-    fun addCard(cardHolderName: String, cardNumber: String, expirationDate: String) {
-        if (cardHolderName.isBlank() || cardNumber.isBlank() || expirationDate.isBlank()) {
-            _error.value = "Todos los campos son obligatorios"
+    fun addCard(cardholderName: String, cardNumber: String, expirationDate: String) {
+        if (cardholderName.isBlank() || cardNumber.isBlank() || expirationDate.isBlank()) {
+            _message.value = "Please fill all fields"
             return
         }
 
-        if (cardNumber.length != 16) {
-            _error.value = "El número de tarjeta debe tener 16 dígitos"
-            return
-        }
-
-        _loading.value = true
+        _isLoading.value = true
         val card = Card(
-            cardHolderName = cardHolderName,
+            cardholderName = cardholderName,
             cardNumber = cardNumber,
             expirationDate = expirationDate
         )
 
-        repository.addCard(card) { success, error ->
-            _loading.value = false
+        repository.addCard(card) { success ->
+            _isLoading.value = false
             if (success) {
-                _operationResult.value = "Tarjeta agregada exitosamente"
-                loadCards() // Recargar la lista
+                _message.value = "Card added successfully"
+                loadCards() // Reload cards after adding
             } else {
-                _error.value = error
+                _message.value = "Failed to add card"
             }
         }
     }
 
     fun deleteCard(cardId: String) {
-        _loading.value = true
-        repository.deleteCard(cardId) { success, error ->
-            _loading.value = false
+        _isLoading.value = true
+        repository.deleteCard(cardId) { success ->
+            _isLoading.value = false
             if (success) {
-                _operationResult.value = "Tarjeta eliminada exitosamente"
-                loadCards() // Recargar la lista
+                _message.value = "Card deleted successfully"
+                loadCards() // Reload cards after deleting
             } else {
-                _error.value = error
+                _message.value = "Failed to delete card"
             }
         }
-    }
-
-    fun clearError() {
-        _error.value = null
-    }
-
-    fun clearOperationResult() {
-        _operationResult.value = null
     }
 }
