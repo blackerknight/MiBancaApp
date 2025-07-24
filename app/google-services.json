@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1023971247179",
+    "project_id": "mibancaapp",
+    "storage_bucket": "mibancaapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1023971247179:android:3d8d5b4d6cf6a8881679ce",
+        "android_client_info": {
+          "package_name": "com.example.mibancaapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLl5Mo2kASgHXLv8fMb9eLsgqspT71how"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
