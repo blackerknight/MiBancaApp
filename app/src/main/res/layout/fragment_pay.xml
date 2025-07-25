@@ -1,16 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
+    android:background="#FAFAFA"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/textPlaceholder"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pay functionality coming soon"
-        android:textSize="18sp" />
+        android:gravity="center_horizontal"
+        android:paddingBottom="32dp">
 
-</LinearLayout>
+        <TextView
+            android:text="Realizar Pago"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:text="Selecciona una tarjeta"
+            android:textColor="#666666"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/spinnerCards"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/spinner_background"
+            android:padding="12dp"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/etTargetCard"
+            android:hint="Tarjeta de destino"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp" />
+
+        <EditText
+            android:id="@+id/etRecipientName"
+            android:hint="Nombre del destinatario"
+            android:inputType="textPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp" />
+
+        <EditText
+            android:id="@+id/etPaymentReason"
+            android:hint="Motivo del pago"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp" />
+
+        <Button
+            android:id="@+id/btnPay"
+            android:text="Realizar Pago"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</ScrollView>

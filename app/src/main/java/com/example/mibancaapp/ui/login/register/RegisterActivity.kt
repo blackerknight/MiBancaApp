@@ -8,7 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.mibancaapp.databinding.ActivityRegisterBinding
 import com.example.mibancaapp.ui.login.login.AuthResult
 import com.example.mibancaapp.ui.login.login.LoginActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding

@@ -8,17 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.example.mibancaapp.dashboard.mycards.CardViewModelFactory
+import androidx.fragment.app.viewModels
 import com.example.mibancaapp.ui.dashboard.newcard.AddCardActivity
 import com.example.mibancaapp.databinding.FragmentMyCardsBinding
 import com.example.mibancaapp.model.Card
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MyCardsFragment : Fragment() {
     private var _binding: FragmentMyCardsBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var viewModel: CardViewModel
+    private val viewModel: CardViewModel by viewModels()
     private lateinit var adapter: CardAdapter
 
     override fun onCreateView(
@@ -32,9 +33,6 @@ class MyCardsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val factory = CardViewModelFactory(requireContext())
-        viewModel = ViewModelProvider(this, factory)[CardViewModel::class.java]
 
         setupRecyclerView()
         observeViewModel()

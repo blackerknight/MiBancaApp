@@ -1,4 +1,4 @@
-package com.example.mibancaapp.ui.login.register
+package com.example.mibancaapp.data.repository
 
 import com.google.firebase.auth.FirebaseAuth
 

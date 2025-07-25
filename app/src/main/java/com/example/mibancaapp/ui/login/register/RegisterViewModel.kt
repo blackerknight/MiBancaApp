@@ -3,10 +3,13 @@ package com.example.mibancaapp.ui.login.register
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.mibancaapp.data.repository.RegisterRepository
 import com.example.mibancaapp.ui.login.login.AuthResult
+import javax.inject.Inject
 
-class RegisterViewModel : ViewModel() {
-    private val repository = RegisterRepository()
+class RegisterViewModel @Inject constructor(
+    private val repository: RegisterRepository
+) : ViewModel() {
 
     private val _authResult = MutableLiveData<AuthResult>()
     val authResult: LiveData<AuthResult> = _authResult

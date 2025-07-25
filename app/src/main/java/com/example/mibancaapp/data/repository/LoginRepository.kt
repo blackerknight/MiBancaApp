@@ -1,12 +1,15 @@
-package com.example.mibancaapp.ui.login.login
+package com.example.mibancaapp.data.repository
 
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class LoginRepository {
-    private val firebaseAuth = FirebaseAuth.getInstance()
-
+@Singleton
+class LoginRepository @Inject constructor(
+    private val firebaseAuth: FirebaseAuth
+) {
     val currentUser: FirebaseUser? get() = firebaseAuth.currentUser
 
     fun login(email: String, password: String, callback: (Boolean, String?) -> Unit) {

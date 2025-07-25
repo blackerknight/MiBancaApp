@@ -3,23 +3,21 @@ package com.example.mibancaapp.ui.dashboard.newcard
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
-import com.example.mibancaapp.dashboard.mycards.NewCard.AddCardViewModelFactory
 import com.example.mibancaapp.databinding.ActivityAddCardBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AddCardActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddCardBinding
-    private lateinit var viewModel: AddCardViewModel
+    private val viewModel: AddCardViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddCardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        val factory = AddCardViewModelFactory(applicationContext)
-        viewModel = ViewModelProvider(this, factory)[AddCardViewModel::class.java]
         observeViewModel()
 
         binding.buttonSave.setOnClickListener {

@@ -7,9 +7,14 @@ import androidx.lifecycle.viewModelScope
 import com.example.mibancaapp.model.Card
 import com.example.mibancaapp.data.local.toEntity
 import com.example.mibancaapp.data.repository.AddCardRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class AddCardViewModel(private val repository: AddCardRepository) : ViewModel() {
+@HiltViewModel
+class AddCardViewModel @Inject constructor(
+    private val repository: AddCardRepository
+) : ViewModel() {
 
     private val _cards = MutableLiveData<List<Card>>()
     val cards: LiveData<List<Card>> = _cards
