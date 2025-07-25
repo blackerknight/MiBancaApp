@@ -1,11 +1,12 @@
-package com.example.mibancaapp.dashboard.mycards.NewCard
+package com.example.mibancaapp.ui.dashboard.newcard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mibancaapp.dashboard.mycards.Card
-import com.example.mibancaapp.model.toEntity
+import com.example.mibancaapp.model.Card
+import com.example.mibancaapp.data.local.toEntity
+import com.example.mibancaapp.data.repository.AddCardRepository
 import kotlinx.coroutines.launch
 
 class AddCardViewModel(private val repository: AddCardRepository) : ViewModel() {

@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
     kotlin("kapt")
+
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -55,6 +57,10 @@ dependencies {
     // Optional: Coroutines support
     implementation("androidx.room:room-ktx:$roomVersion")
 
+    //Hilt
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-compiler:2.48")
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -69,7 +75,6 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
 
     implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:firebase-firestore")
 
     // ViewModel y LiveData (Architecture Components)
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")

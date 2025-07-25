@@ -1,4 +1,4 @@
-package com.example.mibancaapp.dashboard
+package com.example.mibancaapp.ui.dashboard.tabcontainer
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

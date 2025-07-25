@@ -1,10 +1,11 @@
-package com.example.mibancaapp.dashboard.mycards.NewCard
+package com.example.mibancaapp.ui.dashboard.newcard
 
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.mibancaapp.dashboard.mycards.NewCard.AddCardViewModelFactory
 import com.example.mibancaapp.databinding.ActivityAddCardBinding
 
 class AddCardActivity : AppCompatActivity() {

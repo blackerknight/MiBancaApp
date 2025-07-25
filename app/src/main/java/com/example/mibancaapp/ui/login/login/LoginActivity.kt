@@ -1,24 +1,24 @@
-package com.example.mibancaapp
+package com.example.mibancaapp.ui.login.login
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mibancaapp.dashboard.DashboardActivity
+import com.example.mibancaapp.ui.login.register.RegisterActivity
+import com.example.mibancaapp.ui.dashboard.tabcontainer.DashboardActivity
 import com.example.mibancaapp.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private val viewModel: AuthViewModel by viewModels()
+    private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Verificar si el usuario ya está logueado
         if (viewModel.isUserLoggedIn()) {
             goToMain()
             return
@@ -81,7 +81,6 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.clearResult()
         hideError()
     }
 }

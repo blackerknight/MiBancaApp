@@ -1,4 +1,4 @@
-package com.example.mibancaapp.dashboard.mycards
+package com.example.mibancaapp.ui.dashboard.mycards
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -9,8 +9,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.mibancaapp.dashboard.mycards.NewCard.AddCardActivity
+import com.example.mibancaapp.dashboard.mycards.CardViewModelFactory
+import com.example.mibancaapp.ui.dashboard.newcard.AddCardActivity
 import com.example.mibancaapp.databinding.FragmentMyCardsBinding
+import com.example.mibancaapp.model.Card
 
 class MyCardsFragment : Fragment() {
     private var _binding: FragmentMyCardsBinding? = null

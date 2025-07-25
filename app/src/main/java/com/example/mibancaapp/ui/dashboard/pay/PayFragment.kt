@@ -1,4 +1,4 @@
-package com.example.mibancaapp.dashboard.pay
+package com.example.mibancaapp.ui.dashboard.pay
 
 import android.os.Bundle
 import android.view.LayoutInflater

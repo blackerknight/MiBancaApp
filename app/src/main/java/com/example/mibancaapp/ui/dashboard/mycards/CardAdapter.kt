@@ -1,9 +1,10 @@
-package com.example.mibancaapp.dashboard.mycards
+package com.example.mibancaapp.ui.dashboard.mycards
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mibancaapp.databinding.ItemCardBinding
+import com.example.mibancaapp.model.Card
 
 class CardAdapter(
     private val onDeleteClick: (Card) -> Unit

@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.mibancaapp.data.repository.CardRepository
+import com.example.mibancaapp.ui.dashboard.mycards.CardViewModel
 
 class CardViewModelFactory(private val context: Context) : ViewModelProvider.Factory {
     @Suppress("UNCHECKED_CAST")

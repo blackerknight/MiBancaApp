@@ -1,4 +1,4 @@
-package com.example.mibancaapp.dashboard.movements
+package com.example.mibancaapp.ui.dashboard.movements
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,7 +1,6 @@
 package com.example.mibancaapp.data.local
 
 import androidx.room.*
-import com.example.mibancaapp.model.CardEntity
 
 @Dao
 interface CardDao {

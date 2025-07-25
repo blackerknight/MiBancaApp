@@ -1,4 +1,4 @@
-package com.example.mibancaapp
+package com.example.mibancaapp.ui.login.register
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,11 +6,13 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mibancaapp.databinding.ActivityRegisterBinding
+import com.example.mibancaapp.ui.login.login.AuthResult
+import com.example.mibancaapp.ui.login.login.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
-    private val viewModel: AuthViewModel by viewModels()
+    private val viewModel: RegisterViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,7 +83,6 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.clearResult()
         hideError()
     }
 }

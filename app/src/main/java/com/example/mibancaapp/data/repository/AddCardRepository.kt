@@ -1,8 +1,8 @@
-package com.example.mibancaapp.dashboard.mycards.NewCard
+package com.example.mibancaapp.data.repository
 
 import android.content.Context
 import com.example.mibancaapp.data.local.AppDatabase
-import com.example.mibancaapp.model.CardEntity
+import com.example.mibancaapp.data.local.CardEntity
 import com.google.firebase.auth.FirebaseAuth
 
 class AddCardRepository(context: Context) {

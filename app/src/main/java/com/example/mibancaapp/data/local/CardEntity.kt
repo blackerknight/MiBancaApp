@@ -1,8 +1,8 @@
-package com.example.mibancaapp.model
+package com.example.mibancaapp.data.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.mibancaapp.dashboard.mycards.Card
+import com.example.mibancaapp.model.Card
 
 @Entity(tableName = "cards")
 data class CardEntity(
