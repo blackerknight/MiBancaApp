@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "1023971247179",
-    "project_id": "mibancaapp",
-    "storage_bucket": "mibancaapp.firebasestorage.app"
+    "project_number": "484609701654",
+    "project_id": "mibank-6668b",
+    "storage_bucket": "mibank-6668b.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1023971247179:android:3d8d5b4d6cf6a8881679ce",
+        "mobilesdk_app_id": "1:484609701654:android:b67731fd945192bbaf8237",
         "android_client_info": {
           "package_name": "com.example.mibancaapp"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCLl5Mo2kASgHXLv8fMb9eLsgqspT71how"
+          "current_key": "AIzaSyC_SI2QNSsr3WoUGX_diUZsdI8HVj5vPho"
         }
       ],
       "services": {

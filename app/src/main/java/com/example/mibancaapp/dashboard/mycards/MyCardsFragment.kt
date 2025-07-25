@@ -1,4 +1,4 @@
-package com.example.mibancaapp.dashboard
+package com.example.mibancaapp.dashboard.mycards
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.mibancaapp.dashboard.mycards.NewCard.AddCardActivity
 import com.example.mibancaapp.databinding.FragmentMyCardsBinding
 
 class MyCardsFragment : Fragment() {
@@ -34,7 +35,6 @@ class MyCardsFragment : Fragment() {
         setupRecyclerView()
         observeViewModel()
 
-        // Load cards when fragment is created
         viewModel.loadCards()
 
         binding.fabAddCard.setOnClickListener {
@@ -45,7 +45,6 @@ class MyCardsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        // Reload cards when returning from AddCardActivity
         viewModel.loadCards()
     }
 

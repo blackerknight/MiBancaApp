@@ -1,4 +1,4 @@
-package com.example.mibancaapp.dashboard
+package com.example.mibancaapp.dashboard.mycards
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

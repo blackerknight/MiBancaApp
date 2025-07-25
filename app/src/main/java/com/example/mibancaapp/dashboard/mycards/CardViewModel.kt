@@ -1,4 +1,4 @@
-package com.example.mibancaapp.dashboard
+package com.example.mibancaapp.dashboard.mycards
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

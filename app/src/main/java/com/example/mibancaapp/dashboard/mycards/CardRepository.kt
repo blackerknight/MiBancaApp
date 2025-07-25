@@ -1,5 +1,6 @@
-package com.example.mibancaapp.dashboard
+package com.example.mibancaapp.dashboard.mycards
 
+import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -26,7 +27,8 @@ class CardRepository {
                 }
                 callback(cards)
             }
-            .addOnFailureListener {
+            .addOnFailureListener { e ->
+                Log.e("Firestore", "Error al guardar", e)
                 callback(emptyList())
             }
     }
@@ -42,7 +44,10 @@ class CardRepository {
         firestore.collection("cards")
             .add(cardWithUserId)
             .addOnSuccessListener { callback(true) }
-            .addOnFailureListener { callback(false) }
+            .addOnFailureListener { e ->
+                Log.e("Firestore", "Error al guardar", e)
+                callback(false)
+            }
     }
 
     fun deleteCard(cardId: String, callback: (Boolean) -> Unit) {
@@ -50,6 +55,9 @@ class CardRepository {
             .document(cardId)
             .delete()
             .addOnSuccessListener { callback(true) }
-            .addOnFailureListener { callback(false) }
+            .addOnFailureListener { e ->
+                Log.e("Firestore", "Error al guardar", e)
+                callback(false)
+            }
     }
 }

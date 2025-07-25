@@ -1,14 +1,14 @@
-package com.example.mibancaapp.dashboard
+package com.example.mibancaapp.dashboard.pay
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.mibancaapp.databinding.FragmentMyMovementsBinding
+import com.example.mibancaapp.databinding.FragmentPayBinding
 
-class MyMovementsFragment : Fragment() {
-    private var _binding: FragmentMyMovementsBinding? = null
+class PayFragment : Fragment() {
+    private var _binding: FragmentPayBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -16,14 +16,14 @@ class MyMovementsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMyMovementsBinding.inflate(inflater, container, false)
+        _binding = FragmentPayBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.textPlaceholder.text = "Movements history coming soon"
+        binding.textPlaceholder.text = "Pay functionality coming soon"
     }
 
     override fun onDestroyView() {

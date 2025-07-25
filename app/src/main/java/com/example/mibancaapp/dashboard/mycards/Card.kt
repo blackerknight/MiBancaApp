@@ -1,4 +1,4 @@
-package com.example.mibancaapp.dashboard
+package com.example.mibancaapp.dashboard.mycards
 
 data class Card(
     val id: String = "",

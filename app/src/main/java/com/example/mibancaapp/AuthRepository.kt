@@ -1,5 +1,6 @@
 package com.example.mibancaapp
 
+import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -16,6 +17,9 @@ class AuthRepository {
                 } else {
                     callback(false, task.exception?.message)
                 }
+            }
+            .addOnFailureListener { e ->
+                Log.e("FirebaseAuth", "Fallo en login: ${e.message}", e)
             }
     }
 

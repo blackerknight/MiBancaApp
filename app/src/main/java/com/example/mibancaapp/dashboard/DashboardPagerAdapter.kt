@@ -4,6 +4,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.mibancaapp.dashboard.mycards.MyCardsFragment
+import com.example.mibancaapp.dashboard.pay.PayFragment
+import com.example.mibancaapp.dashboard.movements.MyMovementsFragment
 
 class DashboardPagerAdapter(
     fragmentManager: FragmentManager,
