@@ -5,19 +5,20 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.mibancaapp.dashboard.mycards.CardViewModel
 import com.example.mibancaapp.databinding.ActivityAddCardBinding
 
 class AddCardActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddCardBinding
-    private lateinit var viewModel: CardViewModel
+    private lateinit var viewModel: AddCardViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddCardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this)[CardViewModel::class.java]
+
+        val factory = AddCardViewModelFactory(applicationContext)
+        viewModel = ViewModelProvider(this, factory)[AddCardViewModel::class.java]
         observeViewModel()
 
         binding.buttonSave.setOnClickListener {

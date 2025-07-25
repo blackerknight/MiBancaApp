@@ -31,7 +31,9 @@ class MyCardsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this)[CardViewModel::class.java]
+        val factory = CardViewModelFactory(requireContext())
+        viewModel = ViewModelProvider(this, factory)[CardViewModel::class.java]
+
         setupRecyclerView()
         observeViewModel()
 

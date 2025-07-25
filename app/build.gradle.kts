@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
+    kotlin("kapt")
 }
 
 android {
@@ -41,6 +42,19 @@ android {
 }
 
 dependencies {
+
+    val roomVersion = "2.6.1" // Use latest stable version
+
+    // Room components
+    implementation("androidx.room:room-runtime:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+
+    // Optional: Kotlin support for Room
+    kapt("androidx.room:room-compiler:$roomVersion")
+
+    // Optional: Coroutines support
+    implementation("androidx.room:room-ktx:$roomVersion")
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

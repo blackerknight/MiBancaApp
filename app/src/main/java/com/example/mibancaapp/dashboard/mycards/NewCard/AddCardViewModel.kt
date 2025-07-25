@@ -1,17 +1,14 @@
-package com.example.mibancaapp.dashboard.mycards
+package com.example.mibancaapp.dashboard.mycards.NewCard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.mibancaapp.data.repository.CardRepository
-
-
-import androidx.lifecycle.*
-import com.example.mibancaapp.model.toCard
+import androidx.lifecycle.viewModelScope
+import com.example.mibancaapp.dashboard.mycards.Card
 import com.example.mibancaapp.model.toEntity
 import kotlinx.coroutines.launch
 
-class CardViewModel(private val repository: CardRepository) : ViewModel() {
+class AddCardViewModel(private val repository: AddCardRepository) : ViewModel() {
 
     private val _cards = MutableLiveData<List<Card>>()
     val cards: LiveData<List<Card>> = _cards
@@ -21,22 +18,6 @@ class CardViewModel(private val repository: CardRepository) : ViewModel() {
 
     private val _message = MutableLiveData<String>()
     val message: LiveData<String> = _message
-
-    fun loadCards() {
-        _isLoading.value = true
-        viewModelScope.launch {
-            try {
-                val entities = repository.getCards()
-                val cards = entities.map { it.toCard() }
-
-                _cards.value = cards
-            } catch (e: Exception) {
-                _message.value = "Error loading cards: ${e.localizedMessage}"
-            } finally {
-                _isLoading.value = false
-            }
-        }
-    }
 
     fun addCard(cardholderName: String, cardNumber: String, expirationDate: String) {
         if (cardholderName.isBlank() || cardNumber.isBlank() || expirationDate.isBlank()) {
@@ -57,24 +38,8 @@ class CardViewModel(private val repository: CardRepository) : ViewModel() {
                 val entity = card.toEntity()
                 repository.addCard(entity)
                 _message.value = "Card added successfully"
-                loadCards()
             } catch (e: Exception) {
                 _message.value = "Failed to add card: ${e.localizedMessage}"
-            } finally {
-                _isLoading.value = false
-            }
-        }
-    }
-
-    fun deleteCard(cardId: Int) {
-        _isLoading.value = true
-        viewModelScope.launch {
-            try {
-                repository.deleteCard(cardId)
-                _message.value = "Card deleted successfully"
-                loadCards()
-            } catch (e: Exception) {
-                _message.value = "Failed to delete card: ${e.localizedMessage}"
             } finally {
                 _isLoading.value = false
             }
