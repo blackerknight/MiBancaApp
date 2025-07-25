@@ -1,38 +1,51 @@
 package com.example.mibancaapp.ui.dashboard.movements
 
+import android.graphics.Color
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mibancaapp.R
 import com.example.mibancaapp.data.local.MovementEntity
 import android.text.format.DateFormat
 import androidx.recyclerview.widget.DiffUtil
+import com.example.mibancaapp.databinding.ItemMovementBinding
 
-class MovementAdapter : ListAdapter<MovementEntity, MovementAdapter.MovementViewHolder>(DiffCallback()) {
+class MovementAdapter() : ListAdapter<MovementEntity, MovementAdapter.MovementViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovementViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_movement, parent, false)
-        return MovementViewHolder(view)
+        val binding = ItemMovementBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return MovementViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: MovementViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 
-    class MovementViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val textInfo = itemView.findViewById<TextView>(R.id.textInfo)
+    inner class MovementViewHolder(private val binding: ItemMovementBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            binding.root.setOnClickListener {
+
+            }
+        }
 
         fun bind(movement: MovementEntity) {
-            val formattedDate = DateFormat.format("dd/MM/yyyy HH:mm", movement.timestamp)
-            textInfo.text = """
-                Destinatario: ${movement.recipientName}
-                Motivo: ${movement.reason}
-                Fecha: $formattedDate
-                Coordenadas: ${movement.latitude}, ${movement.longitude}
-            """.trimIndent()
+            binding.apply {
+                val formattedDate = DateFormat.format("dd/MM/yyyy HH:mm", movement.timestamp)
+
+                textRecipient.text = "Destinatario: ${movement.recipientName}"
+                textReason.text = "Motivo: ${movement.reason}"
+                textDate.text = "Fecha: $formattedDate"
+                textCoordinates.text = "Coordenadas: ${movement.latitude}, ${movement.longitude}"
+
+                textRecipient.setTextColor(Color.parseColor("#222222"))
+                textRecipient.textSize = 16f
+            }
         }
     }
 

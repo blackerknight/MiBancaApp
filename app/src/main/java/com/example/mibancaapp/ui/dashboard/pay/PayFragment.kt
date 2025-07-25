@@ -79,6 +79,11 @@ class PayFragment : Fragment() {
         viewModel.loadCards()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.loadCards()
+    }
+
     private fun hasLocationPermission(): Boolean {
         return ActivityCompat.checkSelfPermission(
             requireContext(),

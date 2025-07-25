@@ -52,6 +52,13 @@ dependencies {
     implementation("androidx.room:room-runtime:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
 
+    // SQLCipher for Room encryption
+    implementation("net.zetetic:android-database-sqlcipher:4.5.0")
+
+    // Room with SQLCipher support
+    implementation("androidx.sqlite:sqlite-framework:2.3.0")
+    implementation("androidx.sqlite:sqlite:2.3.0")
+
     // Optional: Kotlin support for Room
     kapt("androidx.room:room-compiler:$roomVersion")
 
