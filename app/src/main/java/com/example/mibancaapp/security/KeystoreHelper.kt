@@ -54,7 +54,6 @@ object KeystoreHelper {
             val iv = Base64.decode(ivBase64, Base64.DEFAULT)
             decryptData(encrypted, secretKey, iv)
         } else {
-            // Generate random passphrase
             val passphrase = ByteArray(32).apply { SecureRandom().nextBytes(this) }
             val (encrypted, iv) = encryptData(passphrase, secretKey)
             prefs.edit()

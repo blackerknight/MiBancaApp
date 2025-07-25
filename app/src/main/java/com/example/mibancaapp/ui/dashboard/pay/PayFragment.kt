@@ -140,12 +140,10 @@ class PayFragment : Fragment() {
                 lng = lng
             )
 
-            // Clear input fields
             binding.etTargetCard.text.clear()
             binding.etRecipientName.text.clear()
             binding.etPaymentReason.text.clear()
 
-            // Launch TransferSuccessActivity
             val intent = Intent(requireContext(), TransferSuccessActivity::class.java).apply {
                 putExtra("cardTitle", originCard.cardholderName)
                 putExtra("targetCard", targetCard)

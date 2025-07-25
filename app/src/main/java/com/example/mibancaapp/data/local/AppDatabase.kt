@@ -22,10 +22,6 @@ abstract class AppDatabase : RoomDatabase() {
 
         fun getInstance(context: Context): AppDatabase =
             INSTANCE ?: synchronized(this) {
-
-                // Todo: Use a strong key and get it from a server
-                //val passphrase: ByteArray = SQLiteDatabase.getBytes("myStrongPassphrase@123#".toCharArray())
-
                 val passphrase = KeystoreHelper.getDatabasePassphrase(context)
                 val factory = SupportFactory(passphrase)
 
@@ -35,7 +31,7 @@ abstract class AppDatabase : RoomDatabase() {
                     "cards_db.db"
                 )
                     .openHelperFactory(factory)
-                    .fallbackToDestructiveMigration() // Todo: implement a migration
+                    .fallbackToDestructiveMigration()
                     .build()
                     .also { INSTANCE = it }
             }
