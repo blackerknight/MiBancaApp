@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.mibancaapp.ui.login.register.RegisterActivity
 import com.example.mibancaapp.ui.dashboard.tabcontainer.DashboardActivity
 import com.example.mibancaapp.databinding.ActivityLoginBinding
+import com.example.mibancaapp.setAlphanumericLimit
+import com.example.mibancaapp.setEmailInput
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -31,6 +33,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun setupClickListeners() {
+        binding.etPassword.setAlphanumericLimit(6)
+
+        binding.etEmail.setEmailInput()
+
         binding.btnLogin.setOnClickListener {
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
